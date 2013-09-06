@@ -45,7 +45,7 @@ void ft_count_clone_file(map *mp, int *fd, char *buf, int ret)
 		ft_take_char_first_line(buf, &count, find_char, &countfind);
 		buf[ret] = '\0';
 	}
-	if (close(*fd))
+	if ((close(*fd)) || (mp->x <= 0) || (mp->y <= 0))
 		mp->error = 1;
 	mp->mem[i] = '\0';
 	ft_pull_char_first_line(countfind, mp, find_char);
