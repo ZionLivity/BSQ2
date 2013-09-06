@@ -58,13 +58,15 @@ void	ft_count_clone_file(map *mp, int *fd, char *buf, int ret)
 **Open a file and write an error in map's struct.    
 */
 
-void	ft_open(int *fd, char *av, map *mp)
+int	ft_open(int *fd, char *av, map *mp)
 {
 	*fd = open(av, O_RDONLY);
 	if (*fd < 0)
 	{
 		mp->error = 1;
+		return (1);
 	}
+	return (0);
 }
 
 /*
@@ -84,12 +86,14 @@ map	ft_map_copy(char *av, int ac)
 	mp.mem = (char*) malloc(BUFFSIZE);
 	if (ac > 1)
 	{
-		ft_open(&fd, av, &mp);
+		if ((ft_open(&fd, av, &mp)))
+			return (mp);
 		while ((ret = read(fd, buf, BUFFSIZE)))
 			j++;
 		close(fd);
 		mp.mem = malloc(sizeof(char*) * j);
-		ft_open(&fd, av, &mp);
+		if ((ft_open(&fd, av, &mp)))
+			return (mp);
 	}
 	ft_count_clone_file(&mp, &fd, buf, ret);
 	return (mp);
