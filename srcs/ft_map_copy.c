@@ -34,7 +34,7 @@ void ft_count_clone_file(map *mp, int *fd, char *buf, int ret)
 	count = 0;
 	countfind = 0;
 	map_init(mp);
-	while ((ret = read(*fd, buf, BUFFSIZE)))
+	while (read(*fd, buf, BUFFSIZE))
 	{
 		if (count != 0)
 		{
@@ -63,13 +63,28 @@ map	ft_map_copy(char *av, int ac)
 	char	buf[BUFFSIZE + 1];
 	map	mp;
 	int ret;
+	int j;
 
 
 	fd = 0;
+	j = 0;
 	mp.mem = (char*)malloc(BUFFSIZE);
 	if (ac > 1)
 	{
-		fd = open(av, O_RDONLY, S_IREAD);
+		fd = open(av, O_RDONLY);
+		if (fd < 0)
+		{
+			mp.error = 1;
+			return (mp);
+		}	
+		while ((ret = read(fd, buf, BUFFSIZE)))
+			j++;
+		close(fd);
+		mp.mem = malloc(sizeof(char*) * j);
+	}
+	if (ac > 1)
+	{
+		fd = open(av, O_RDONLY);
 		if (fd < 0)
 		{
 			mp.error = 1;
