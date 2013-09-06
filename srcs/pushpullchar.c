@@ -25,7 +25,10 @@ void ft_pull_char_first_line(int countfind, map *mp, char *find_char)
 		mp->print = find_char[countfind - 1];
 		if ((mp->print == mp->obstacle)
 			|| (mp->obstacle == mp->empty)
-			|| (mp->print == mp->empty))
+			|| (mp->print == mp->empty)
+			|| (!((mp->print > 32) && (mp->print < 127)))
+			|| (!((mp->obstacle > 32) && (mp->obstacle < 127)))
+			|| (!((mp->empty > 32) && (mp->empty < 127))))
 			mp->error = 1;
 	}
 	else
