@@ -30,7 +30,7 @@ void	ft_putstr(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
 		ft_putchar(str[i]);
 		i = i + 1;
@@ -54,4 +54,3 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[count] = src[count];
 	return (dest);
 }
-
