@@ -13,7 +13,6 @@
 #ifndef FUNCTION
 # define FUNCTION
 
-void	ft_putchar(char c);
 void	ft_putstr(char *str);
 char	*ft_strcpy(char *dest, char *src);
 

@@ -20,8 +20,8 @@
 
 int		ft_is_print(square sq, map mp, int i, int j)
 {
-	if ((j >= (sq.x) && j < sq.x + sq.size) 
-		&& ((i >= (sq.x + sq.y * mp.x) 
+	if ((j >= (sq.x) && j < sq.x + sq.size)
+		&& ((i >= (sq.x + sq.y * mp.x)
 		&& (i < sq.x + sq.y * (mp.x + 1) + sq.size * (mp.x + 1)))))
 	{
 		return (1);
