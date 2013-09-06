@@ -27,9 +27,7 @@ void	ft_display(map mp, square sq)
 
 	i = 0;
 	if (mp.error == 1)
-	{
 		ft_putstr("map error.\n");
-	}
 	else
 	{
 		while (mp.mem[i] != '\0')

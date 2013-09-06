@@ -12,7 +12,6 @@
 
 #include "ft_check_square.h"
 #include "function.h"
-#include <stdio.h>
 
 /*
 **This function give a size to check_square 
@@ -34,7 +33,6 @@ square		ft_square_test(int size, map mp)
 	{
 		if (mem != 1)
 			mem = mem / 2;
-		printf("%d\n", sq.size);
 		if (!sq.boolcheck)
 			sq.size = sq.size - mem;
 		else
