@@ -13,7 +13,7 @@
 #ifndef DISPLAY
 # define DISPLAY
 
-void	ft_putchar(char c);
+int		ft_is_print(square sq, map mp, int i, int j);
 void	ft_display(map mp, square sq);
 
 #endif
