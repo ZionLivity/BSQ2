@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef __STRUC_H__
-#	define __STRUC_H__
+# define __STRUC_H__
 
-typedef	struct	st_square
+typedef struct	st_square
 {
 	int	boolcheck;
 	int	x;
@@ -20,7 +20,7 @@ typedef	struct	st_square
 	int	size;
 }	square;
 
-typedef	struct st_map
+typedef struct	st_map
 {
 	char	*mem;
 	int	x;

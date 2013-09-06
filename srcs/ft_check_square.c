@@ -20,10 +20,10 @@
 **  bad caractere in x coordinate.
 */
 
-int ft_check_one_square(int *x, int *y, square sq, map mp)
+int	ft_check_one_square(int *x, int *y, square sq, map mp)
 {
-	int fx;
-	int fy;
+	int	fx;
+	int	fy;
 
 	fx = 0;
 	fy = 0;
@@ -31,13 +31,13 @@ int ft_check_one_square(int *x, int *y, square sq, map mp)
 	{
 		fx = 0;
 		while (fx < sq.size)
-		{	
+		{
 			if (mp.mem[(fx + *x) + (mp.x + 1) * (*y + fy)] == mp.obstacle)
 			{
-				*x = fx + *x; 
+				*x = fx + *x;
 				return (0);
 			}
-			fx++;			
+			fx++;
 		}
 		fy++;
 	}
@@ -53,7 +53,8 @@ square	ft_check_square(int size, map mp)
 {
 	int	x;
 	int	y;
-	square sq;
+	square	sq;
+
 	y = 0;
 	sq.size = size;
 	sq.boolcheck = 0;
@@ -73,7 +74,5 @@ square	ft_check_square(int size, map mp)
 		}
 		y++;
 	}
-	sq.x = -1;
-	sq.y = -1;
 	return (sq);
 }

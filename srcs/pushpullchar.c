@@ -16,7 +16,7 @@
 **pull all character nessecery for the map in the map's.
 */
 
-void ft_pull_char_first_line(int countfind, map *mp, char *find_char)
+void	ft_pull_char_first_line(int countfind, map *mp, char *find_char)
 {
 	if (countfind > 0)
 	{
@@ -39,13 +39,13 @@ void ft_pull_char_first_line(int countfind, map *mp, char *find_char)
 **Take characters who define the map 
 */
 
-void ft_take_char_first_line(char *buf, int *count, char *find_char, int *countfind)
+void	ft_take_char_first_line(char *buf, int *count, char *find_char, int *cou)
 {
 	if (buf[0] == '\n' && *count == 0 )
 		*count = 1;
-	else if (buf[0] != '\n'&& *count == 0)
+	else if (buf[0] != '\n' && *count == 0)
 	{
-		find_char[*countfind] = buf[0];
-		*countfind += 1;
+		find_char[*cou] = buf[0];
+		*cou += 1;
 	}
 }
