@@ -18,8 +18,7 @@
 **x, y max of the tab map.
 */
 
-
-void ft_map_max(map *mp)
+void	ft_map_max(map *mp)
 {
 	if (mp->y != 0)
 		mp->x = mp->x / mp->y;
@@ -37,7 +36,7 @@ void ft_map_max(map *mp)
 **map initialise
 */
 
-void map_init(map *mp)
+void	map_init(map *mp)
 {
 	mp->x = 0;
 	mp->y = 0;
@@ -48,7 +47,7 @@ void map_init(map *mp)
 **count line of the map.
 */
 
-void map_count(map *mp, char *buf)
+void	map_count(map *mp, char *buf)
 {
 	if (buf[0] == '\n')
 		mp->y += 1;

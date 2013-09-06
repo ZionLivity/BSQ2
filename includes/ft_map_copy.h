@@ -13,7 +13,8 @@
 #ifndef MAP_COPY
 # define MAP_COPY
 
-void ft_count_clone_file(map *mp, int *fd, char *buf, int ret);
+void	ft_count_clone_file(map *mp, int *fd, char *buf, int ret);
+void	ft_open(int *fd, char *av, map *mp);
 map	ft_map_copy(char *av, int ac);
 
 #endif

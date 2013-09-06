@@ -9,6 +9,7 @@
 /*   Updated: 2013/09/02 13:01:34 by espiroux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #define BUFFSIZE 1
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -23,12 +24,13 @@
 /*
 **copie file to struct map in the variable mem.
 */
-void ft_count_clone_file(map *mp, int *fd, char *buf, int ret)
+
+void	ft_count_clone_file(map *mp, int *fd, char *buf, int ret)
 {
-	int count;
-	int i;
-	int countfind;
-	char find_char[13];
+	int	count;
+	int	i;
+	int	countfind;
+	char	find_char[13];
 
 	i = 0;
 	count = 0;
@@ -52,6 +54,18 @@ void ft_count_clone_file(map *mp, int *fd, char *buf, int ret)
 	ft_map_max(mp);
 }
 
+/*
+**Open a file and write an error in map's struct.    
+*/
+
+void	ft_open(int *fd, char *av, map *mp)
+{
+	*fd = open(av, O_RDONLY);
+	if (*fd < 0)
+	{
+		mp->error = 1;
+	}
+}
 
 /*
 **Copy the map information in a map's structure    
@@ -62,34 +76,20 @@ map	ft_map_copy(char *av, int ac)
 	int	fd;
 	char	buf[BUFFSIZE + 1];
 	map	mp;
-	int ret;
-	int j;
-
+	int	ret;
+	int	j;
 
 	fd = 0;
 	j = 0;
-	mp.mem = (char*)malloc(BUFFSIZE);
+	mp.mem = (char*) malloc(BUFFSIZE);
 	if (ac > 1)
 	{
-		fd = open(av, O_RDONLY);
-		if (fd < 0)
-		{
-			mp.error = 1;
-			return (mp);
-		}	
+		ft_open(&fd, av, &mp);
 		while ((ret = read(fd, buf, BUFFSIZE)))
 			j++;
 		close(fd);
 		mp.mem = malloc(sizeof(char*) * j);
-	}
-	if (ac > 1)
-	{
-		fd = open(av, O_RDONLY);
-		if (fd < 0)
-		{
-			mp.error = 1;
-			return (mp);
-		}	
+		ft_open(&fd, av, &mp);
 	}
 	ft_count_clone_file(&mp, &fd, buf, ret);
 	return (mp);
